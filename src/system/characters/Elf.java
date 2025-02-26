@@ -1,6 +1,7 @@
 package system.characters;
 
 public class Elf extends MiddleEarthCharacter{
+	
 	public Elf() {
 		super();
 	}
@@ -31,9 +32,6 @@ public class Elf extends MiddleEarthCharacter{
         target.setHealth(newHealth);
 
         return true;
-		
-		
-		
 		
 	}
 }
