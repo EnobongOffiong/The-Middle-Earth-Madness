@@ -14,4 +14,14 @@ public abstract class MiddleEarthCharacter {
 	}
 	
 	public abstract boolean attack (MiddleEarthCharacter target) ;
+	public abstract String getRace();
+	
+	public void displayInfo() {
+		
+	}
+	
+	@Override 
+	public String toString() {
+		return name + " " + power + " " + health;
+	}
 }
