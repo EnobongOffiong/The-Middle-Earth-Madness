@@ -10,26 +10,30 @@ public class Elf extends MiddleEarthCharacter{
 	}
 	
 	public boolean attack(MiddleEarthCharacter target) {
-		if(target.getRace().equals("Orc")) {
-			Double currentHealth = target.getHealth();
-			Double newHealth = currentHealth - (1.5 * getPower());
-			target.setHealth(newHealth);
-			
+		Double damage = 0.0;
+		
+		if(target.getRace().equalsIgnoreCase("Orc")) {
+			damage = 1.5 * getPower();
 			System.out.println("1.5x damage done");
-			return true;
 		}
+		
 		else if(target.getRace().equals("Dwarf") || target.getRace().equals("Elf")) {
-			System.out.println("No damage done");
+			System.out.println("No damage done to " + target.getRace());
 			return true;
 		}
+		
 		else {
-			Double currentHealth = target.getHealth();
-			Double newHealth = currentHealth - (getPower());
-			target.setHealth(newHealth);
-			
-			System.out.println("Regular damage done");
-			return true;
+			damage = getPower();
+			System.out.println("Regular damage done to" + target.getRace());
 		}
+		
+		double newHealth = Math.max(0, target.getHealth() - damage);
+        target.setHealth(newHealth);
+
+        return true;
+		
+		
+		
 		
 	}
 }
