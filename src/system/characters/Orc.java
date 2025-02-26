@@ -1,24 +1,23 @@
 package system.characters;
 
-public class Elf extends MiddleEarthCharacter{
+public class Orc extends MiddleEarthCharacter {
 	
-	public Elf() {
+	public Orc() {
 		super();
 	}
 	
 	public String getRace() {
-		return "Elf";
+		return "Orc";
 	}
-	
 	public boolean attack(MiddleEarthCharacter target) {
 		Double damage = 0.0;
 		
-		if(target.getRace().equalsIgnoreCase("Orc")) {
+		if(target.getRace().equalsIgnoreCase("Human")) {
 			damage = 1.5 * getPower();
 			System.out.println("1.5x damage done");
 		}
 		
-		else if(target.getRace().equalsIgnoreCase("Dwarf") || target.getRace().equals("Elf")) {
+		else if(target.getRace().equalsIgnoreCase("Orc") || target.getRace().equals("Elf")) {
 			System.out.println("No damage done to " + target.getRace());
 			return true;
 		}
