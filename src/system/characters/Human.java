@@ -1,25 +1,23 @@
 package system.characters;
 
-public class Wizard extends MiddleEarthCharacter{
+public class Human extends MiddleEarthCharacter{
 	
-	public Wizard(){
+	public Human() {
 		super();
 	}
 	
 	public String getRace() {
-		return "Wizard";
+		return "Human";
 	}
-	
-	@Override
 	public boolean attack(MiddleEarthCharacter target) {
 		Double damage = 0.0;
 		
-		if(target.getRace().equalsIgnoreCase("Dwarf")) {
+		if(target.getRace().equalsIgnoreCase("Wizard")) {
 			damage = 1.5 * getPower();
 			System.out.println("1.5x damage done");
 		}
 		
-		else if(target.getRace().equalsIgnoreCase("Human") || target.getRace().equals("Wizard")) {
+		else if(target.getRace().equalsIgnoreCase("Orc") || target.getRace().equals("Human")) {
 			System.out.println("No damage done to " + target.getRace());
 			return true;
 		}
