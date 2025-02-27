@@ -9,6 +9,8 @@ public class Orc extends MiddleEarthCharacter {
 	public String getRace() {
 		return "Orc";
 	}
+	
+	@Override
 	public boolean attack(MiddleEarthCharacter target) {
 		Double damage = 0.0;
 		

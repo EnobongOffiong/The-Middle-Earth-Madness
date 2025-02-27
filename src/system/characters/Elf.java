@@ -10,6 +10,7 @@ public class Elf extends MiddleEarthCharacter{
 		return "Elf";
 	}
 	
+	@Override
 	public boolean attack(MiddleEarthCharacter target) {
 		Double damage = 0.0;
 		
