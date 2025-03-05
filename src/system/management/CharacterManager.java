@@ -73,8 +73,7 @@ public MiddleEarthCharacter getCharacter(String name) {
  * @param power the new power amount to be changed into 
  * @return true if update is successful 
  */
-public boolean updateCharacter (MiddleEarthCharacter character, String
-name, double health, double power) {
+public boolean updateCharacter (MiddleEarthCharacter character, double health, double power) {
 	
 	if (character == null || characters == null) {
         return false; 
@@ -103,14 +102,14 @@ name, double health, double power) {
  * @param character the char that will be deleted 
  * @return true if deletion is successful 
  */
-public boolean deleteCharacter(MiddleEarthCharacter character) {
+public boolean deleteCharacter(String name) {
 	
-	if (characters == null || character == null) {
+	if (characters == null) {
 	    return false;
 	}
 	
 	for (int i = 0; i < size; i++) {
-		if(characters[i]== character ){
+		if(characters[i].getName()== name ){
 			for (int remove = i; remove <size-1; remove++) {
 				characters[remove] = characters[remove+1];
 
