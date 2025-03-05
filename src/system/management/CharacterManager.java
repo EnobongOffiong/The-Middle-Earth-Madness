@@ -82,12 +82,12 @@ name, double health, double power) {
 	
 	for (int i = 0; i < characters.length; i++) {
 		if (characters[i] != null && characters[i].getName().equalsIgnoreCase(character.getName())) { // Check if this is the character to update
-            if (characters[i].getName().equals(name) &&
+            if (            		
                 characters[i].getHealth() == health &&
                 characters[i].getPower() == power) {
                 	return false; 
             }
-            characters[i].setName(name);
+      
             characters[i].setHealth(health);
             characters[i].setPower(power);
             return true; 

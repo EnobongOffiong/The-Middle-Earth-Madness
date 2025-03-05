@@ -2,9 +2,9 @@ package system.characters;
 
 public class Orc extends MiddleEarthCharacter {
 	
-	public Orc() {
-		super();
-	}
+	 public Orc(String name, double health, double power) {
+	    	super(name, health, power);
+	    }
 	
 	public String getRace() {
 		return "Orc";
@@ -19,7 +19,7 @@ public class Orc extends MiddleEarthCharacter {
 			System.out.println("1.5x damage done");
 		}
 		
-		else if(target.getRace().equalsIgnoreCase("Orc") || target.getRace().equals("Elf")) {
+		else if(target.getRace().equalsIgnoreCase("Orc") || target.getRace().equalsIgnoreCase("Elf")) {
 			System.out.println("No damage done to " + target.getRace());
 			return true;
 		}

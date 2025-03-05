@@ -2,9 +2,10 @@ package system.characters;
 
 public class Elf extends MiddleEarthCharacter{
 	
-	public Elf() {
-		super();
-	}
+
+    public Elf(String name, double health, double power) {
+    	super(name, health, power);
+    }
 	
 	public String getRace() {
 		return "Elf";
@@ -12,14 +13,14 @@ public class Elf extends MiddleEarthCharacter{
 	
 	@Override
 	public boolean attack(MiddleEarthCharacter target) {
-		Double damage = 0.0;
+		double damage = 0;
 		
 		if(target.getRace().equalsIgnoreCase("Orc")) {
 			damage = 1.5 * getPower();
 			System.out.println("1.5x damage done");
 		}
 		
-		else if(target.getRace().equalsIgnoreCase("Dwarf") || target.getRace().equals("Elf")) {
+		else if(target.getRace().equalsIgnoreCase("Dwarf") || target.getRace().equalsIgnoreCase("Elf")) {
 			System.out.println("No damage done to " + target.getRace());
 			return true;
 		}
