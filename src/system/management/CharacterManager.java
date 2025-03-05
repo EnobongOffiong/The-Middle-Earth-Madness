@@ -11,6 +11,14 @@ private MiddleEarthCharacter[] characters;
 private int size; 
 
 /**
+ * constructor for CharacterManager for initialization
+ */
+public CharacterManager() {
+    characters = new MiddleEarthCharacter[5];  // Initial capacity
+    size = 0;
+}
+
+/**
  * adds new character & doubles the array size if it's full 
  * @param c character to be added 
  * @return true if the character addition is successful, else false
@@ -21,9 +29,6 @@ public boolean addCharacter(MiddleEarthCharacter c) {
 		return false;
 	}
 	
-	if (size > characters.length) {
-	    return false; // Prevent out-of-bounds errors
-	}
 	//doubling array if the array is full 
 	if (characters.length == size) {
 		int moreSpace = characters.length * 2;
@@ -76,7 +81,7 @@ name, double health, double power) {
     } 
 	
 	for (int i = 0; i < characters.length; i++) {
-		if (characters[i] != null && characters[i].equals(character)) { // Check if this is the character to update
+		if (characters[i] != null && characters[i].getName().equalsIgnoreCase(character.getName())) { // Check if this is the character to update
             if (characters[i].getName().equals(name) &&
                 characters[i].getHealth() == health &&
                 characters[i].getPower() == power) {
