@@ -1,41 +1,40 @@
 package system.characters;
 
 public abstract class MiddleEarthCharacter {
-	private String name;
-	private Double power;
-	private Double health;
+	private final String name;
+	private double power;
+	private double health;
 	
 	public abstract boolean attack (MiddleEarthCharacter target) ;
 	public abstract String getRace();
 	
-	public MiddleEarthCharacter() {
-		name = "Unknown";
-		power = 0.0;
-		health = 0.0;	
-	}
+	// Constructor
+	public MiddleEarthCharacter(String name, double power, double health) {
+        this.name = name;
+        this.power = power;
+        this.health = health;
+    }
 	
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 	
 	public String getName() {
 		return name;
 	}
 	
-	public void setPower(Double power) {
+	public void setPower(double power) {
 		this.power = power;
 	}
 	
 	public Double getPower() {
-		return power.doubleValue();
+		return power;
 	}
 	
-	public void setHealth(Double health) {
+	public void setHealth(double health) {
 		this.health = health;
 	}
 	
 	public Double getHealth() {
-		return health.doubleValue();
+		return health;
 	}
 	
 	
