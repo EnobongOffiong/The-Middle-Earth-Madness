@@ -123,9 +123,9 @@ public boolean deleteCharacter(MiddleEarthCharacter character) {
  * displays all the characters in the array 
  */
 public void displayAllCharacters() {
-	for(int i = 0; i < size; i++) {
-		System.out.println(characters[i]);
-	}
+	for (int i = 0; i < size; i++) {
+        characters[i].displayInfo();
+    }
 }
 
 /** shows all the characters 
