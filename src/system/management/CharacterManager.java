@@ -13,10 +13,17 @@ private int size;
 /**
  * adds new character & doubles the array size if it's full 
  * @param c character to be added 
- * @return true if the character addition is successful, false else
+ * @return true if the character addition is successful, else false
  */
 public boolean addCharacter(MiddleEarthCharacter c) {
 	
+	if(c == null) {
+		return false;
+	}
+	
+	if (size > characters.length) {
+	    return false; // Prevent out-of-bounds errors
+	}
 	//doubling array if the array is full 
 	if (characters.length == size) {
 		int moreSpace = characters.length * 2;
@@ -25,13 +32,12 @@ public boolean addCharacter(MiddleEarthCharacter c) {
 			array[i] = characters[i];
 		}
 		characters = array;
-		
+	}
 		characters[size] = c;
 		size = size+ 1;
 		
 		return true; 
-	}
-	return false;
+	
 	
 }
 
@@ -41,38 +47,49 @@ public boolean addCharacter(MiddleEarthCharacter c) {
  */
 public MiddleEarthCharacter getCharacter(String name) {
 	
+	if (name == null || characters == null) {
+        return null;
+    }
+	
 	for (int i = 0; i<characters.length; i++) {
-		if (characters[i].getName().equals(name)) {
+		if (characters[i] != null && characters[i].getName().equalsIgnoreCase(name)) {
 			return characters[i];  
 		}
 	}
+	
 	return null;  
 }
 
 /**
  * updating characters in array 
  * @param character the character that gets updated 
- * @param name the new name to be change into
+ * @param name the new name to be changed into
  * @param health the new health amount to be changed into 
  * @param power the new power amount to be changed into 
  * @return true if update is successful 
  */
 public boolean updateCharacter (MiddleEarthCharacter character, String
 name, double health, double power) {
+	
+	if (character == null || characters == null) {
+        return false; 
+    } 
+	
 	for (int i = 0; i < characters.length; i++) {
-		if (characters[i].equals(character)) { // Check if this is the character to update
+		if (characters[i] != null && characters[i].equals(character)) { // Check if this is the character to update
             if (characters[i].getName().equals(name) &&
                 characters[i].getHealth() == health &&
                 characters[i].getPower() == power) {
-                return false; 
-		}
+                	return false; 
+            }
             characters[i].setName(name);
             characters[i].setHealth(health);
             characters[i].setPower(power);
             return true; 
 		} 
 	
-	}return false; 
+	}
+	return false; // character not found
 }
 
 
@@ -82,8 +99,13 @@ name, double health, double power) {
  * @return true if deletion is successful 
  */
 public boolean deleteCharacter(MiddleEarthCharacter character) {
+	
+	if (characters == null || character == null) {
+	    return false;
+	}
+	
 	for (int i = 0; i < size; i++) {
-		if(characters[i].equals(character)){
+		if(characters[i]== character ){
 			for (int remove = i; remove <size-1; remove++) {
 				characters[remove] = characters[remove+1];
 
@@ -93,7 +115,8 @@ public boolean deleteCharacter(MiddleEarthCharacter character) {
             return true;
 		}
 		
-	}return false; 
+	}
+	return false; //character not found
 }
 
 /**
